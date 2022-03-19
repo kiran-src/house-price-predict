@@ -29,5 +29,11 @@ chas_c.index = ['No', 'Yes']
 chas_bar=px.bar(chas_c, color=chas_c.index)
 chas_bar.show()
 
+# Create pair plots to see relationships of information relative to one another to find relationships
+sns.pairplot(df[['NOX', 'DIS', 'RM', 'PRICE', 'LSTAT']])
 
+# Use jointplots to plot a linear line to fit to determine if the relationship between datasets are linear
+sns.jointplot(data=df, x='LSTAT', y='RM', kind='reg')
+sns.jointplot(data=df, x='LSTAT', y='PRICE', kind='reg')
+plt.show()
 # print(f"NaN Values: {df.isna().values.any()}\nDuplicates: {df.duplicated.values.any()}")
